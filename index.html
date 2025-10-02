@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flores Animadas</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: #0d0d0d; overflow: hidden;
+    }
+    .night {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 50px 50px; z-index: 0;
+    }
+    .flowers { position: relative; width: 200px; height: 200px; }
+    .flower { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .flower__leafs {
+      position: relative; width: 100px; height: 100px; animation: blossom 3s ease-in-out forwards;
+    }
+    .flower__leaf {
+      position: absolute; width: 50px; height: 80px;
+      background: linear-gradient(135deg, #ff4ecd, #ff9de1);
+      border-radius: 50% 50% 0 0; transform-origin: bottom center;
+      opacity: 0; animation: bloom 2s ease-in-out forwards;
+    }
+    .flower__leaf--1 { transform: rotate(0deg) translateY(-30px); animation-delay: 0.2s; }
+    .flower__leaf--2 { transform: rotate(90deg) translateY(-30px); animation-delay: 0.4s; }
+    .flower__leaf--3 { transform: rotate(180deg) translateY(-30px); animation-delay: 0.6s; }
+    .flower__leaf--4 { transform: rotate(270deg) translateY(-30px); animation-delay: 0.8s; }
+    .flower__white-circle {
+      position: absolute; top: 50%; left: 50%; width: 20px; height: 20px;
+      background: #fff; border-radius: 50%; transform: translate(-50%, -50%);
+      animation: pop 2s ease forwards; opacity: 0;
+    }
+    .flower__light {
+      position: absolute; width: 10px; height: 10px; background: #fff59d;
+      border-radius: 50%; opacity: 0; animation: sparkle 3s infinite;
+    }
+    .flower__light--1 { top: -40px; left: 20px; animation-delay: 0.2s; }
+    .flower__light--2 { top: -20px; left: -40px; animation-delay: 0.4s; }
+    .flower__light--3 { top: 40px; left: -30px; animation-delay: 0.6s; }
+    .flower__light--4 { top: 50px; left: 20px; animation-delay: 0.8s; }
+    .flower__light--5 { top: 10px; left: 50px; animation-delay: 1s; }
+    .flower__light--6 { top: -50px; left: -10px; animation-delay: 1.2s; }
+    .flower__light--7 { top: -30px; left: 40px; animation-delay: 1.4s; }
+    @keyframes blossom { from { transform: scale(0); } to { transform: scale(1); } }
+    @keyframes bloom { 0% { opacity: 0; transform: scale(0.2);} 100% {opacity: 1; transform: scale(1);} }
+    @keyframes pop { 0% { opacity: 0; transform: translate(-50%, -50%) scale(0.2);}
+                     100% { opacity: 1; transform: translate(-50%, -50%) scale(1);} }
+    @keyframes sparkle { 0%,100% { opacity: 0; transform: scale(0.5);}
+                         50% { opacity: 1; transform: scale(1.2);} }
+  </style>
+</head>
+<body>
+  <div class="night"></div>
+  <div class="flowers">
+    <div class="flower flower--1">
+      <div class="flower_leafs flower_leafs--1">
+        <div class="flower_leaf flower_leaf--1"></div>
+        <div class="flower_leaf flower_leaf--2"></div>
+        <div class="flower_leaf flower_leaf--3"></div>
+        <div class="flower_leaf flower_leaf--4"></div>
+        <div class="flower__white-circle"></div>
+      </div>
+      <div class="flower_light flower_light--1"></div>
+      <div class="flower_light flower_light--2"></div>
+      <div class="flower_light flower_light--3"></div>
+      <div class="flower_light flower_light--4"></div>
+      <div class="flower_light flower_light--5"></div>
+      <div class="flower_light flower_light--6"></div>
+      <div class="flower_light flower_light--7"></div>
+    </div>
+  </div>
+</body>
+</html>
